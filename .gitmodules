@@ -1,0 +1,6 @@
+[submodule "adc0832"]
+	path = adc0832
+	url = git@github.com:monomon/adc0832-wiringPi.git
+[submodule "leds_and_buttons"]
+	path = leds_and_buttons
+	url = git@github.com:monomon/leds_and_buttons.git
