@@ -65,8 +65,8 @@ alphabet = {
         "00000000",
         "00111100",
         "01000010",
-        "01000010",
         "01111110",
+        "01000010",
         "01000010",
         "01000010",
         "00000000"],
@@ -112,12 +112,12 @@ alphabet = {
     ],
     "i": [
         "00000000",
-        "00010000",
-        "00000000",
-        "00010000",
+        "00111000",
         "00010000",
         "00010000",
         "00010000",
+        "00010000",
+        "00111000",
         "00000000"
     ],
     "l": [
@@ -507,7 +507,7 @@ saucer = [[
 ]]
 
 
-clock_interval = 6e-7
+clock_interval = 4e-7
 shift_interval = 0.0001
 frame_interval = 0.07
 
@@ -582,6 +582,9 @@ def convert_animation_to_bitmask_array(animation, height, width):
     return [convert_frame_to_bitmask(frame, height, width) for frame in animation]
 
 
+def convert_text_to_788bs_animated_mask(txt):
+    return [convert_image_to_788bs_mask(alphabet[im]) for im in txt]
+
 def convert_image_to_788bs_mask(image):
     """
     Convert a bitmap to a sequence of
@@ -648,10 +651,11 @@ if __name__ == "__main__":
         height,
         width
     )
+
     sand_clock_frames = [convert_image_to_788bs_mask(f) for f in sand_clock]
 
-    bottleship_letters = [convert_image_to_788bs_mask(
-        alphabet[im]) for im in "no procrastination station "]
+    bottleship_letters = convert_text_to_788bs_animated_mask("no procrastination station ")
+
     bitmask_skull = [convert_image_to_788bs_mask(skull)]
     saucer_frames = [convert_image_to_788bs_mask(f) for f in saucer]
 
